@@ -370,8 +370,6 @@ static void lintosilk_destroy(struct ast_trans_pvt *pvt)
 {
 
   struct silk_coder_pvt *coder = pvt->pvt;
-
-  // free the memory we allocated for the encoder
   free(coder->psEnc);
 }
 
