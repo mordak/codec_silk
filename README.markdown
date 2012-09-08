@@ -20,37 +20,27 @@ SILK support was added in Asterisk 10, but the translator module is provided as 
 
 ## How to use
 
-0. Presuming that you already have asterisk 10 built and installed somewhere, you can build and install this module like so:
+0. Presuming that you already have asterisk built and installed somewhere, you can build and install this module like so:
 
 1. Get the SILK Codec [from Skype][silk]. They have terms you must agree to before pulling down the codec source, so go to the website, do that, and then download the source into the codecs directory of your asterisk source tree.
 
     `cd /path/to/src/asterisk/codecs`
 
-    `wget http://developer.skype.com/silk/SILK_SDK_SRC_v1.0.8.zip`
+    `curl -fkSLO http://developer.skype.com/silk/SILK_SDK_SRC_v1.0.8.zip`
 
-2. Unzip and build the source. This translator uses the fixed point version, so we link it into the codecs directory.
+2. Pull down the install script from here. This will unpack the silk source, link it into the codecs directory, and modify the codecs Makefile appropriately.
 
-    `unzip SILK_SDK_SRC_v1.0.8.zip`
+    `curl -fkSLO https://raw.github.com/mordak/codec_silk/master/install_silk.sh`
 
-    `ln -s SILK_SDK_SRC_v1.0.8/SILK_SDK_SRC_FIX_v1.0.8 silk`
+    `sh install_silk.sh`
 
-    `cd silk`
-
-    `make clean all`
+3. Make asterisk. This will build the module as a .so:
 
     `cd ../`
 
-3. Presuming that the build went well, now pull down this translator wrapper
+    `make`
 
-    `/usr/bin/curl -fksSL https://raw.github.com/mordak/codec_silk/master/codecs/ex_silk.h > ex_silk.h`
-
-    `/usr/bin/curl -fksSL https://raw.github.com/mordak/codec_silk/master/codecs/codec_silk.c > codec_silk.c`
-
-4. Make asterisk and point it at the SILK library you built. This will build the module as a .so. Then copy the .so into your asterisk install's modules directory.
-
-    `cd ../`
-
-    `make LIBS="$PWD/codecs/silk/libSKP_SILK_SDK.a"`
+4. Install the new module. If you have previously installed asterisk from the same source directory you are using now, then you should be able to just 'make install' again. If you just want to copy the new module into your existing asterisk install, then you can do just that:
 
     `cp codecs/codec_silk.so /path/to/asterisk/install/lib/asterisk/modules/`
 
