@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 SKYPE_SILK_VER=1.0.8
 SKYPE_SILK_ZIP="SILK_SDK_SRC_v$SKYPE_SILK_VER.zip"
