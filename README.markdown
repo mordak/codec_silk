@@ -12,7 +12,7 @@ This is not a SILK encoder/decoder. The coder is provided by the [SILK library][
 
 ## System Requirements
 
-This module builds against the Asterisk 10 source, so you need to be able to do that to use this module.
+This module builds against the Asterisk 10/11 source, so you need to be able to do that to use this module.
 
 ## Why
 
@@ -26,7 +26,7 @@ SILK support was added in Asterisk 10, but the translator module is provided as 
 
     `cd /path/to/src/asterisk/codecs`
 
-    `curl -fkSLO http://developer.skype.com/silk/SILK_SDK_SRC_v1.0.8.zip`
+    `curl -fkSLO http://developer.skype.com/silk/SILK_SDK_SRC_v1.0.9.zip`
 
 2. Pull down the install script from here. This will unpack the silk source, link it into the codecs directory, and modify the codecs Makefile appropriately.
 
