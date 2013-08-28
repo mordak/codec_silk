@@ -54,7 +54,7 @@ You should see all of the translator definitions get loaded along with their com
 
 ## Compatability
 
-I have tested this on OS X Server 10.6.
+I have tested this on OS X Server 10.6 and 10.8, up to asterisk 11.5.1.
 
 This module should support high sample rate codecs (16KHz, etc) without incident, but I have really only tested it with 8KHz codecs.
 
